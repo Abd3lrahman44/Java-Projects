@@ -1,6 +1,6 @@
 # Text Manipulation Utilities (Caesar Cipher)
 
-This Java-based project encompasses a collection of utilities designed for specific text manipulations, including vowel substitution, strategic character emphasis, and the application of Caesar cipher encryption techniques for text encoding. The suite is bifurcated into two principal classes: `WordPlay`, which focuses on vowel manipulation and character emphasis, and `CaesarCipher`, dedicated to encoding text using Caesar cipher encryption with support for both single and dual encryption keys.
+This Java-based project encompasses a collection of utilities designed for specific text manipulations, including vowel substitution, strategic character emphasis, and the application of Caesar cipher encryption techniques for text encoding. The suite is bifurcated into two principal classes: `WordPlay`, which focuses on vowel manipulation and character emphasis, and `CaesarCipher`, dedicated to encoding text using Caesar cipher encryption with support for both single and dual encryption keys. 
 
 ## Getting Started
 
