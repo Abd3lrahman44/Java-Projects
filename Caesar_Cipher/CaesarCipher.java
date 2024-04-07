@@ -1,63 +1,53 @@
-import edu.duke.*;
-import java.lang.*;
-
 public class CaesarCipher {
+    private String alphabet;
+    private String shiftedAlphabet;
+    private int mainKey;
     
+    public CaesarCipher(int key){
+        mainKey = key;
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        shiftedAlphabet = alphabet.substring(key) + alphabet.substring(0, key);
+    }
     
-    public String encryptString(String original, int key){
-        StringBuilder encrypted = new StringBuilder(original);
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String shiftedAlphabet = alphabet.substring(key) + alphabet.substring(0,key);
-        for(int i = 0; i < encrypted.length(); i++){
-            char currChar = Character.toUpperCase(encrypted.charAt(i));
-            int idx = alphabet.indexOf(currChar);
-            if(idx != -1){
+    public String encryptString(String input) {
+        StringBuilder encrypted = new StringBuilder(input);
+        
+        for (int i = 0; i < encrypted.length(); i++) {
+            char currChar = encrypted.charAt(i);
+            int idx = alphabet.indexOf(Character.toUpperCase(currChar));
+            if (idx != -1) {
                 char newChar = shiftedAlphabet.charAt(idx);
+                if (Character.isLowerCase(currChar)) {
+                    newChar = Character.toLowerCase(newChar);
+                }
                 encrypted.setCharAt(i, newChar);
             }
         }
         return encrypted.toString();
     }
     
+    public String decryptString(String input){
+        CaesarCipher cc = new CaesarCipher(26 - mainKey);
+        String decrypted = cc.encryptString(input);
+        return decrypted;
+    }
     
-    public String encryptTwoKeys(String original, int key1, int key2){
-        StringBuilder encrypted = new StringBuilder(original);
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String shiftedAlphabet1 = alphabet.substring(key1) + alphabet.substring(0,key1);
-        String shiftedAlphabet2 = alphabet.substring(key2) + alphabet.substring(0,key2);
-        
-        for(int i = 0; i < encrypted.length(); i+=2){
-            char currChar = Character.toUpperCase(encrypted.charAt(i));
-            int idx = alphabet.indexOf(currChar);
-            if(idx != -1){
-                char newChar = shiftedAlphabet1.charAt(idx);
-                encrypted.setCharAt(i, newChar);
-            }
-        }
-        
-        for(int i = 1; i < encrypted.length(); i+=2){
-            char currChar = Character.toUpperCase(encrypted.charAt(i));
-            int idx = alphabet.indexOf(currChar);
-            if(idx != -1){
-                char newChar = shiftedAlphabet2.charAt(idx);
-                encrypted.setCharAt(i, newChar);
+    /*
+    public String encryptTwoKeys(String input) {
+        StringBuilder encrypted = new StringBuilder(input);
+        CaesarCipher cc = new CaesarCipher();
+        for (int i = 0; i < encrypted.length(); i++) {
+            if (i % 2 == 0) {  // Even index, use key1
+                String part = encryptString(Character.toString(encrypted.charAt(i)), key1);
+                encrypted.setCharAt(i, part.charAt(0));
+            } else {  // Odd index, use key2
+                String part = encryptString(Character.toString(encrypted.charAt(i)), key2);
+                encrypted.setCharAt(i, part.charAt(0));
             }
         }
         return encrypted.toString();
     }
+    */
     
     
-    public void test2Keys(){
-        String str = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
-        String encrypted = encryptTwoKeys(str, 8,21);
-        System.out.println(encrypted);
-    }
-    
-    
-    public void testCaesar(){
-        int key = 15;
-        String message = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
-        String encrypted = encryptString(message, key);
-        System.out.println(encrypted);
-    }   
 }
