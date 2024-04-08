@@ -2,7 +2,7 @@
 
 ## Creator
 
-Abdulrahman Zaghloul [LinkedIn](linkedin.com/in/abdulrahman-zaghloul-876735295/)
+Abdulrahman Zaghloul [LinkedIn](https://linkedin.com/in/abdulrahman-zaghloul-876735295/)
 
 ## Description
 
