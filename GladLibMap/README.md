@@ -1,8 +1,9 @@
 # GladLibMap
 
-## Creator
+### Creator
 Abdulrahman Zaghloul [LinkedIn](https://www.linkedin.com/in/abdulrahman-zaghloul-876735295/)
 
+## Overview
 GladLibMap is a Java project that generates random stories by replacing placeholder text (such as `<noun>`, `<adjective>`, etc.) with actual words from a specified category. This is an extension of the traditional Mad Libs game, utilizing a HashMap to organize word categories and their corresponding lists of words. The project demonstrates an understanding of Java Collections Framework, particularly the use of HashMaps and ArrayLists, along with basic file I/O operations to read from a set of predefined files or URLs.
 
 ## Features
